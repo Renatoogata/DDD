@@ -14,18 +14,18 @@ export class Slug {
    */
 
   static createFromText(text: string) {
-    //normalize -> remover qualquer tipo de acentuação da string
-    //trim -> tirar espaçamento na esquerda ou direita
-    //replace -> utilizando espaços em brancos por uma string vazia
+    // normalize -> remover qualquer tipo de acentuação da string
+    // trim -> tirar espaçamento na esquerda ou direita
+    // replace -> utilizando espaços em brancos por uma string vazia
     const slugText = text
-      .normalize("NFKD")
+      .normalize('NFKD')
       .toLocaleLowerCase()
       .trim()
-      .replace(/\s+/g, "-")
-      .replace(/[^\w-]+/g, "-")
-      .replace(/_/g, "-")
-      .replace(/--+/g, "-")
-      .replace(/-$/g, "")
+      .replace(/\s+/g, '-')
+      .replace(/[^\w-]+/g, '-')
+      .replace(/_/g, '-')
+      .replace(/--+/g, '-')
+      .replace(/-$/g, '')
 
     return new Slug(slugText)
   }
